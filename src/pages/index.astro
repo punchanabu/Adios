@@ -1,24 +1,24 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Navbar from '../components/Navbar.astro';
-import Card from '../components/Home/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Home/Header.astro";
+import Card from "../components/Home/Card.astro";
+import Stat from "../components/Home/Stat.astro";
 ---
 
 <Layout title="Adios">
-	<Navbar/>
-	<main class="flex items-center justify-center h-full w-full py-24 px-56 flex-col space-y-36">
-		<Header/>
+	<main
+		class="flex items-center justify-center h-full w-full py-24 flex-col space-y-36 flex-wrap"
+	>
+		<Header />
 		<div class="flex flex-col items-center justify-center space-y-24">
-			<h1 class = "text-5xl font-bold text-white">Latest Adios Picture</h1>
-			<div class="flex space-x-16 items-center justify-center">
+			<h1 class="text-5xl font-bold text-white text-center">Latest Adios Picture</h1>
+			<div class="flex items-center justify-center flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-16 p-10">
 				<Card />
 				<Card />
 				<Card />
 			</div>
 		</div>
+		<Stat/>
 	</main>
 </Layout>
-
-<style>
-</style>
+<style></style>

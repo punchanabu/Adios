@@ -1,0 +1,15 @@
+---
+import Image from "astro/components/Image.astro";
+import singImage from "../../public/sing.png";
+---
+
+<section class="text-white flex justify-center space-y-4 space-x-4 flex-col md:flex-row">
+    <div class="max-w-1/2 space-y-12 flex flex-col items-start justify-start p-10">
+        <h1 class="text-6xl font-bold">Archive of Adios</h1>
+        <p class="text-xl ">Every day, my friend sends a special photograph <br> called an <span class = "font-bold">Adios Picture</span> in our Discord server, <br>which is a ritual to reflect on the day and look forward to the next.</p>
+        <button class = "bg-red-500 p-5 text-xl font-bold rounded-xl shadow-md w-full md:w-1/3">View Pictures</button>
+    </div>
+    <div class="w-full md:w-1/2 items-center justify-center hidden md:flex">
+        <iframe src="https://discord.com/widget?id=465087692334694401&theme=dark" width = {500} height = {500} allowtransparency="true"  sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    </div>
+</section>
