@@ -1,19 +1,18 @@
 ---
-// Example images data
-const images = [
-  { src: "https://via.placeholder.com/500x300", alt: "Image 1" },
-  { src: "https://via.placeholder.com/400x600", alt: "Image 2" },
-  { src: "https://via.placeholder.com/600x400", alt: "Image 3" },
-  { src: "https://via.placeholder.com/500x500", alt: "Image 4" },
-  { src: "https://via.placeholder.com/450x450", alt: "Image 5" },
-  { src: "https://via.placeholder.com/400x300", alt: "Image 6" },
-  { src: "https://via.placeholder.com/500x700", alt: "Image 7" },
-  { src: "https://via.placeholder.com/300x400", alt: "Image 8" },
-];
+// Fetch the JSON data from an API endpoint
+
+const response = await fetch(`${import.meta.env.PUBLIC_API_URL}/messages/images`);
+const data = await response.json();
+
+// Extract the imageUrl from the JSON data
+const images = data.map((item: any) => ({
+  src: item.imageUrl,
+  alt: item.title,
+}));
 ---
 
 <div class="masonry-grid">
-  {images.map((image) => (
+  {images.map((image: any) => (
     <div class="masonry-item">
       <img src={image.src} alt={image.alt} class="w-full h-auto rounded-xl"/>
     </div>
