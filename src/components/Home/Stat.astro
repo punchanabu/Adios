@@ -1,21 +1,22 @@
 ---
-// Example static data, replace with dynamic data fetch if necessary
-const stats = {
-  imagesPosted: 1200,
-  uniqueContributors: 300
+import type { AdiosStat } from "../../@types/member";
+import AdiosChart from "../Adios/AdiosChart";
+const getAdiosCountByUser = async () => {
+    const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/messages/count-by-author`);
+    const data = await res.json();
+    return data;
 };
+
+const rawData = await getAdiosCountByUser();
+
+const adiosData = Object.entries(rawData).map(([author, count]) => ({
+  author,
+  count: Number(count),
+}));
 ---
 
-<div class="text-white p-4 md:p-6 flex flex-col items-center justify-center space-y-16">
-    <h1 class="text-5xl font-bold">We have a long history</h1>
-    <div class="container mx-auto max-w-full flex justify-around items-center space-x-16">
-    <div class="stat">
-      <p class="text-5xl font-bold">{stats.imagesPosted}+</p>
-      <p>Adios Images Posted</p>
-    </div>
-    <div class="stat">
-      <p class="text-5xl font-bold">{stats.uniqueContributors}+</p>
-      <p>Unique Contributors</p>
-    </div>
-  </div>
+<div class="p-4 md:p-6 flex flex-col items-center justify-center space-y-6">
+    <h1 class="text-5xl font-bold">Statistics</h1>
+    <p class="text-lg">Realtime Statistic for those who contribute to Adios</p>
+    <AdiosChart data={adiosData} client:load/>
 </div>

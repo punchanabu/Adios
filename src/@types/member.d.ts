@@ -6,3 +6,8 @@ export interface Member {
     bot: boolean,
     joinedAt: string,
 }
+
+export interface AdiosStat {
+    author: string;
+    count: number;
+}
