@@ -1,13 +1,35 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import PictureGrid from "../../components/PictureGrid.astro";
-import AdiosHeader from "../../components/AdiosPicture/AdiosHeader.astro";
+import PictureGrid from "../../components/Adios/PictureGrid";
+import AdiosHeader from "../../components/Adios/AdiosHeader.astro";
+
+const API_URL = import.meta.env.PUBLIC_API_URL;
+
+async function getInitialData() {
+    const page = 1;
+    const response = await fetch(`${API_URL}/messages/images?page=${page}&limit=20`);
+    const jsonData = await response.json();
+    const initialImages = jsonData?.data.map((item: any) => ({
+        src: item.imageUrl || '',
+        alt: item.content,
+    }));
+    return {
+        initialImages,
+        initialPage: page,
+        initialTotalPages: jsonData.meta.totalPages,
+    };
+}
+
+const { initialImages, initialPage, initialTotalPages } = await getInitialData();
 ---
 
-
 <Layout title="Adios Picture">
-    <main class="px-8 md:px-32 py-16 space-y-16">
-        <AdiosHeader />
-        <PictureGrid />
+    <main class="px-8 md:px-32 py-16 md:space-y-16">
+        <PictureGrid
+            initialImages={initialImages}
+            initialPage={initialPage}
+            initialTotalPages={initialTotalPages}
+            client:load
+        />
     </main>
 </Layout>
