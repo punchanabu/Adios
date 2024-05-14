@@ -8,7 +8,7 @@ interface MemberProps {
 
 const MemberPanel: React.FC<MemberProps> = ({ members }) => {
     return (
-        <section className="flex flex-col items-center justify-center space-y-16 p-10 w-full px-96">
+        <section className="flex flex-col items-center justify-center space-y-16 p-10 w-full px-36">
             <div className='space-y-8'>
             <h1 className="text-5xl font-semibold text-center">Main Contributors</h1>
             <p className="text-lg text-center text-black">Thank you for contributing to adios by <span className='font-bold'>posting images</span> of it every day.</p>
