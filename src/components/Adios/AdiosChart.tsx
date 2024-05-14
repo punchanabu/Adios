@@ -18,7 +18,7 @@ const AdiosChart: React.FC<AdiosChartProps> = ({ data }) => {
         .attr('width', 700)
         .attr('height', 500);
 
-      const margin = { top: 40, right: 30, bottom: 60, left: 60 };
+      const margin = { top: 40, right: 30, bottom: 100, left: 60 }; // Increased bottom margin for labels
       const width = Number(svg.attr('width')) - margin.left - margin.right;
       const height = Number(svg.attr('height')) - margin.top - margin.bottom;
       const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
@@ -40,6 +40,8 @@ const AdiosChart: React.FC<AdiosChartProps> = ({ data }) => {
         .call(d3.axisBottom(x))
         .selectAll("text")
         .attr("transform", "rotate(-45)")
+        .attr("dx", "-0.8em")
+        .attr("dy", "0.15em")
         .style("text-anchor", "end");
 
       // Y-axis
@@ -47,13 +49,7 @@ const AdiosChart: React.FC<AdiosChartProps> = ({ data }) => {
         .attr('class', 'y-axis')
         .call(d3.axisLeft(y));
 
-      // X-axis label
-      g.append('text')
-        .attr('class', 'axis-label')
-        .attr('x', width / 2)
-        .attr('y', height + margin.bottom - 10)
-        .attr('text-anchor', 'middle')
-        .text('ID');
+   
 
       // Y-axis label
       g.append('text')
@@ -78,7 +74,7 @@ const AdiosChart: React.FC<AdiosChartProps> = ({ data }) => {
         .attr('y', d => y(d.count))
         .attr('width', x.bandwidth())
         .attr('height', d => height - y(d.count))
-        .attr('fill', '#ff7474')
+        .attr('fill', 'white')
         .attr('rx', 5) // Rounded corners
         .on("mouseover", function(event, d) {
           tooltip.transition()
@@ -104,18 +100,18 @@ const AdiosChart: React.FC<AdiosChartProps> = ({ data }) => {
         .y-axis path,
         .x-axis line,
         .y-axis line {
-          stroke: #d9d9d9;
+          stroke: #fff;
         }
 
         .x-axis text,
         .y-axis text {
-          fill: #4a4a4a;
-          font-size: 12px;
+          fill: #fff;
+          font-size: 16px; /* Increased font size */
         }
 
         .axis-label {
-          font-size: 14px;
-          fill: #4a4a4a;
+          font-size: 20px; /* Increased label size */
+          fill: #fff;
           font-weight: bold;
         }
 

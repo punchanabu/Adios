@@ -4,7 +4,7 @@ import Stat from "../components/Home/Stat.astro";
 import Image from "astro/components/Image.astro";
 import grassImage from "../../public/grass.jpeg";
 import MemberPanel from "../components/Member/MemberPanel.tsx";
-import type {Member} from "../@types/member";
+import type { Member } from "../@types/member";
 const fetchMember = async () => {
     const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/members`);
     if (!res.ok) {
@@ -20,28 +20,49 @@ const adiosContributersUsername = [
     "pun6",
     "ezthatmyname",
     "sillysuperpoop",
-]
+];
 
 const membersData = await fetchMember();
 
-const members = membersData.filter((member: Member) => adiosContributersUsername.includes(member.username));
-
-
+const members = membersData.filter((member: Member) =>
+    adiosContributersUsername.includes(member.username),
+);
 ---
 
 <Layout title="Adios">
-    <main class="flex flex-col items-center justify-center h-full w-full space-y-36 p-6">
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center justify-center text-black p-10">
-            <div class="space-y-8 flex flex-col px-16">
-                <h1 class="text-5xl font-bold">Adios Memories</h1>
-                <p class="text-lg">Every day, my friend sends a special photograph called an <span class="font-bold">Adios Picture</span> in our Discord server, which is a ritual to reflect on the day and look forward to the next.</p>
-                <a class="text-center bg-red-400 p-5 text-xl font-bold rounded-2xl shadow-lg w-full text-white hover:bg-red-500 transtion-all duration-500" href="/adios-picture">View Pictures</a>
-            </div>
-            <div class="flex items-center justify-center">
-                <Image src={grassImage} alt="Sing Image" class="rounded-lg max-h-96 max-w-96" />
-            </div>
+    <main
+        class="flex flex-col items-center justify-center h-full w-full space-y-36"
+    >
+        <section
+            class="flex flex-col md:flex-row text-black p-10 space-x-8"
+        >
+
+                <div
+                    class="space-y-8 flex flex-col"
+                >
+                    <h1 class="text-5xl font-semibold">Adios Memories<br>In the heart <br>not the head</h1>
+                    <p class="text-lg max-w-[500px]">
+                        Every day, my friend sends a special photograph called
+                        an <span class="font-bold">Adios Picture</span> in our Discord
+                        server, which is a ritual to reflect on the day and look
+                        forward to the next.
+                    </p>
+           
+                    <a
+                        class="text-center bg-black p-5 place-self-start text-xl rounded-full shadow-lg text-white"
+                        href="/adios-picture">View Pictures ➜</a
+                    >
+                    
+                </div>
+                <div class="flex items-center">
+                    <Image
+                        src={grassImage}
+                        alt="Sing Image"
+                        class="rounded-lg max-h-[500px] max-w-[500px]"
+                    />
+                </div>
         </section>
-        <MemberPanel members = {members}/>
+        <MemberPanel members={members} />
         <Stat />
     </main>
 </Layout>

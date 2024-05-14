@@ -15,8 +15,20 @@ const adiosData = Object.entries(rawData).map(([author, count]) => ({
 }));
 ---
 
-<div class="p-4 md:p-6 flex flex-col items-center justify-center space-y-6">
-    <h1 class="text-5xl font-bold">Statistics</h1>
-    <p class="text-lg">Realtime Statistic for those who contribute to Adios</p>
+<div class="p-16 flex justify-center space-y-6 bg-black w-full text-white">
     <AdiosChart data={adiosData} client:load/>
+    <div class="space-y-8">
+      <div class = "flex space-x-16">
+        <div class="space-y-2">
+          <h1 class="text-6xl font-semibold">1200+</h1>
+          <p>Adios picture posted</p>
+        </div>
+        <div class="space-y-2">
+          <h1 class="text-6xl font-semibold">10</h1>
+          <p>Unique Contributers</p>
+        </div>
+      </div>
+      <p class="text-lg max-w-96">Realtime Statistics for Adios Contributors
+Access detailed and current statistics for contributors to the Adios project. </p>
+    </div>
 </div>
