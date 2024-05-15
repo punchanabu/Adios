@@ -14,7 +14,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ id, username, avatar, maintaine
             <img
                 src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`}
                 alt={username}
-                className="w-36 h-36 rounded-full shadow-lg "
+                className="w-24 h-24 rounded-full shadow-lg "
             />
             <p className="text-2xl font-semibold">{username}</p>
             { maintainer ? <p>Adios Maintainer</p> : <p>Member</p>}

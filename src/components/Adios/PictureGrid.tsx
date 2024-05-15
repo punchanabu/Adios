@@ -42,7 +42,7 @@ const PictureGrid = ({ initialImages, initialPage, initialTotalPages }: PictureG
     };
 
     return (
-        <main className='space-y-4'>
+        <main className='space-y-16'>
             <div className="masonry-grid">
                 {images?.map((image, index) => (
                     <div className="masonry-item" key={index}>

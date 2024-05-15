@@ -22,13 +22,13 @@ const PageSelect: React.FC<PageSelectProps> = ({ page, setPage, totalPages }) =>
     };
 
     return (
-        <div className="pagination space-x-2">
-            <button onClick={handlePrev} disabled={page === 1} className='bg-red-400 px-4 py-2 rounded-md text-white'>
-                Prev
+        <div className="pagination space-x-4">
+            <button onClick={handlePrev} disabled={page === 1} className='bg-black px-4 py-2 rounded-lg text-white'>
+            ← Prev
             </button>
-            <span className='text-black'>Page {page} of {totalPages}</span>
-            <button onClick={handleNext} disabled={page === totalPages} className='bg-red-400 px-4 py-2 rounded-md text-white'>
-                Next
+            <span className='text-black font-normal'>Page {page} of {totalPages}</span>
+            <button onClick={handleNext} disabled={page === totalPages} className='bg-black px-4 py-2 rounded-lg text-white'>
+                Next →
             </button>
         </div>
     );

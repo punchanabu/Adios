@@ -94,7 +94,7 @@ const AdiosChart: React.FC<AdiosChartProps> = ({ data }) => {
 
   return (
     <>
-      <svg ref={chartRef}></svg>
+      <svg ref={chartRef} className='hidden md:block'></svg>
       <style>{`
         .x-axis path,
         .y-axis path,

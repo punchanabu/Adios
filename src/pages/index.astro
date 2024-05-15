@@ -34,7 +34,7 @@ const members = membersData.filter((member: Member) =>
         class="flex flex-col items-center justify-center h-full w-full space-y-36 mt-8"
     >
         <section
-            class="flex flex-col md:flex-row text-black p-10 space-x-8"
+            class="flex flex-col md:flex-row text-black md:p-10 space-y-8 md:space-y-0 space-x-0 md:space-x-8 p-4"
         >
 
                 <div
@@ -49,16 +49,16 @@ const members = membersData.filter((member: Member) =>
                     </p>
            
                     <a
-                        class="text-center bg-black p-5 place-self-start text-xl rounded-full shadow-lg text-white"
+                        class="text-center font-light bg-black p-5 place-self-start text-xl rounded-full shadow-lg text-white"
                         href="/adios-picture">View Pictures ➜</a
                     >
                     
                 </div>
-                <div class="flex items-center">
+                <div class="flex items-center justify-center md:justify-start">
                     <Image
                         src={grassImage}
                         alt="Sing Image"
-                        class="rounded-lg max-h-[500px] max-w-[500px]"
+                        class="rounded-lg  md:max-h-[500px] md:max-w-[500px]"
                     />
                 </div>
         </section>
