@@ -6,7 +6,7 @@ import grassImage from "../../public/grass.jpeg";
 import MemberPanel from "../components/Member/MemberPanel.tsx";
 import type { Member } from "../@types/member";
 const fetchMember = async () => {
-    const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/members`);
+    const res = await fetch(`${import.meta.env.PUBLIC_API_URL}/members`);
     if (!res.ok) {
         throw new Error("Failed to fetch members");
     }
